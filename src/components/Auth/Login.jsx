@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Phone, Shield, Users, UserCheck, Factory, Calculator, Briefcase } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
-
+import {Link} from 'react-router-dom'
 const Login = () => {
   const [loginType, setLoginType] = useState('customer');
   const [mobile, setMobile] = useState('');
@@ -14,13 +14,13 @@ const Login = () => {
   const { sendOTP, verifyOTP, loginUser, customers, employees, otpVerification } = useApp();
 
   const roleIcons = {
-    customer: Phone,
+    sales_man: Briefcase,
     admin: Shield,
     sales_manager: Users,
     sales_authorizer: UserCheck,
     plant_head: Factory,
     accountant: Calculator,
-    salesman: Briefcase
+    // salesman: Briefcase
   };
 
   const handleSendOTP = async () => {
@@ -90,7 +90,7 @@ const Login = () => {
             </label>
             <div className="grid grid-cols-2 gap-2">
               {Object.entries(roleIcons).map(([role, Icon]) => (
-                <button
+                <Link to={role}
                   key={role}
                   onClick={() => setLoginType(role)}
                   className={`p-3 rounded-lg border-2 transition-all ${
@@ -103,7 +103,7 @@ const Login = () => {
                   <span className="text-xs capitalize">
                     {role.replace('_', ' ')}
                   </span>
-                </button>
+                </Link>
               ))}
             </div>
           </div>

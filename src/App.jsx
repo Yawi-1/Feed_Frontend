@@ -9,6 +9,8 @@ import SalesManagerDashboard from './components/SalesManager/SalesManagerDashboa
 import PlantHeadDashboard from './components/PlantHead/PlantHeadDashboard';
 import Salesman from './components/Salesman/Salesman';
 import PlaceNewOrder from './components/Salesman/PlaceNewOrder';
+import SalesAuthorizer from './components/SalesAuthorizer/SalesAuthorizer';
+import Accountant from './components/Accountant/Accountant';
 
 const AppRoutes = () => {
   const { isAuthenticated, userRole } = useApp();
@@ -22,10 +24,13 @@ const AppRoutes = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/sales_manager" element={<SalesManagerDashboard />} />
         <Route path="/sales_man" element={<Salesman />} />
+        <Route path="/sales_authorizer" element={<SalesAuthorizer />} />
         <Route path="/place_order" element={<PlaceNewOrder />} />
         <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/sales_manager" element={<SalesManagerDashboard />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/accountant" element={<Accountant />} />
         <Route path="/plant_head" element={<PlantHeadDashboard />} />
         {/* Redirect unknown routes to a default or role-based page */}
         <Route path="*" element={<Navigate to={`/${userRole}`} replace />} />
