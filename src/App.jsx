@@ -6,6 +6,8 @@ import Header from './components/Layout/Header';
 import CustomerDashboard from './components/Customer/CustomerDashboard';
 import AdminDashboard from './components/Admin/AdminDashboard';
 import SalesManagerDashboard from './components/SalesManager/SalesManagerDashboard';
+import SalesManagerOrderDetail from './components/SalesManager/SalesManagerOrderDetail';
+import SalesManagerOrders from './components/SalesManager/SalesManagerOrders';
 import PlantHeadDashboard from './components/PlantHead/PlantHeadDashboard';
 import Salesman from './components/Salesman/Salesman';
 import PlaceNewOrder from './components/Salesman/PlaceNewOrder';
@@ -25,6 +27,8 @@ const AppRoutes = () => {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/sales_manager" element={<SalesManagerDashboard />} />
+        <Route path="/sales-manager/orders" element={<SalesManagerOrders />} />
+        <Route path="/sales-manager/orders/:id" element={<SalesManagerOrderDetail />} />
         <Route path="/sales_man" element={<Salesman />} />
         <Route path="/sales_authorizer" element={<SalesAuthorizer />} />
         <Route path="/place_order" element={<PlaceNewOrder />} />
