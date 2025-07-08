@@ -13,6 +13,8 @@ import PlaceNewOrder from './components/Salesman/PlaceNewOrder';
 import SalesAuthorizer from './components/SalesAuthorizer/SalesAuthorizer';
 import Accountant from './components/Accountant/Accountant';
 import SalesmanProfile from './components/Salesman/SalemanProfie';
+import DuePaymentList from './components/Salesman/DuePaymentList';
+import Reports from './components/Salesman/Reports';
 const AppRoutes = () => {
   const { isAuthenticated, userRole } = useApp();
 
