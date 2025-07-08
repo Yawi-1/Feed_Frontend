@@ -11,7 +11,9 @@ import Salesman from './components/Salesman/Salesman';
 import PlaceNewOrder from './components/Salesman/PlaceNewOrder';
 import SalesAuthorizer from './components/SalesAuthorizer/SalesAuthorizer';
 import Accountant from './components/Accountant/Accountant';
-
+import SalesmanProfile from './components/Salesman/SalemanProfie';
+import Reports from './components/Salesman/Reports';
+import DuePaymentList from './components/Salesman/DuePaymentList';
 const AppRoutes = () => {
   const { isAuthenticated, userRole } = useApp();
 
@@ -24,6 +26,7 @@ const AppRoutes = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/salesman/profile" element={<SalesmanProfile />} />
         <Route path="/sales_manager" element={<SalesManagerDashboard />} />
         <Route path="/sales_man" element={<Salesman />} />
         <Route path="/sales_authorizer" element={<SalesAuthorizer />} />
@@ -31,6 +34,8 @@ const AppRoutes = () => {
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/accountant" element={<Accountant />} />
+             <Route path="/due_payments" element={<DuePaymentList />} />
+        <Route path="/reports" element={<Reports />} />
         <Route path="/plant_head" element={<PlantHeadDashboard />} />
         {/* Redirect unknown routes to a default or role-based page */}
         <Route path="*" element={<Navigate to={`/${userRole}`} replace />} />
