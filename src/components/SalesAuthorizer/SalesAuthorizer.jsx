@@ -1,6 +1,5 @@
 import React from 'react';
 import OrderList from './OrderList';
-import WarehouseForm from './WarehouseForm';
 
 const SalesAuthorizer = () => {
   return (

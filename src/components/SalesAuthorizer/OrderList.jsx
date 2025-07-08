@@ -28,28 +28,30 @@ const OrderList = () => {
   };
 
   return (
-    <div className="bg-white/80 backdrop-blur rounded-xl shadow-lg p-4 sm:p-6 overflow-auto">
-      <div className="w-full overflow-x-auto">
-        <table className="min-w-full text-sm text-left">
-          <thead>
-            <tr className="text-gray-600 border-b">
-              <th className="py-2">Order ID</th>
-              <th>Product</th>
-              <th>Status</th>
-              <th className="text-center">Action</th>
+    <div className="bg-white/30 backdrop-blur-md shadow-2xl rounded-3xl p-4 sm:p-6 overflow-x-auto transition-all duration-300">
+      <div className="min-w-full">
+        <table className="w-full text-sm sm:text-base text-left text-gray-800">
+          <thead className="border-b-2 border-gray-200 text-gray-600 uppercase text-xs tracking-wider">
+            <tr>
+              <th className="py-3 px-4">Order ID</th>
+              <th className="py-3 px-4">Product</th>
+              <th className="py-3 px-4">Status</th>
+              <th className="py-3 px-4 text-center">Action</th>
             </tr>
           </thead>
           <tbody>
-            {orders.map(order => (
+            {orders.map((order, index) => (
               <tr
                 key={order.id}
-                className="hover:bg-purple-50 transition duration-200 border-b"
+                className={`border-b border-gray-300 ${
+                  index % 2 === 0 ? 'bg-white/50' : 'bg-white/70'
+                } hover:bg-gray-200 transition duration-200`}
               >
-                <td className="py-3">{order.id}</td>
-                <td>{order.product}</td>
-                <td>
+                <td className="py-3 px-4 font-medium">{order.id}</td>
+                <td className="py-3 px-4">{order.product}</td>
+                <td className="py-3 px-4">
                   <span
-                    className={`px-2 py-1 rounded-full text-xs font-medium ${
+                    className={`px-3 py-1 rounded-full text-xs font-semibold shadow-sm ${
                       order.status === 'Pending'
                         ? 'bg-yellow-100 text-yellow-800'
                         : 'bg-green-100 text-green-700'
@@ -58,16 +60,18 @@ const OrderList = () => {
                     {order.status}
                   </span>
                 </td>
-                <td className="text-center">
+                <td className="py-3 px-4 text-center">
                   {order.status === 'Pending' ? (
                     <button
                       onClick={() => handleApprove(order)}
-                      className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white p-1.5 rounded-full shadow transition"
+                      className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-2 py-1 rounded-full text-[10px] shadow-lg hover:shadow-xl transition-all duration-300"
                     >
                       Approve & Assign
                     </button>
                   ) : (
-                    <span className="text-green-600 font-medium">✔ Assigned</span>
+                    <span className="text-green-600 font-semibold text-sm">
+                      ✔ Assigned
+                    </span>
                   )}
                 </td>
               </tr>
@@ -76,6 +80,7 @@ const OrderList = () => {
         </table>
       </div>
 
+      {/* Modal */}
       {selectedOrder && (
         <AssignWarehouseModal
           order={selectedOrder}
