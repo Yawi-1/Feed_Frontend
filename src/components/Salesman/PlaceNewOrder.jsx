@@ -8,17 +8,18 @@ const PlaceNewOrder = () => {
   const [totalAmount, setTotalAmount] = useState(0);
 
   const handleQuantityChange = (e) => {
-    setQuantity(e.target.value);
-    setTotalAmount(calculateTotal());
+    const qty = e.target.value;
+    setQuantity(qty);
+    setTotalAmount(calculateTotal(qty));
   };
 
-  const calculateTotal = () => {
-    // Assuming some logic to calculate total based on item and quantity
-    return 500 * quantity;
+  const calculateTotal = (qty) => {
+    const rate = 500; // Dummy rate
+    return qty * rate;
   };
 
   const handleSubmit = () => {
-    if (party && productType && item && quantity) {
+    if (party && productType && item && quantity > 0) {
       console.log('Proceed to Advance Payment');
     } else {
       alert('All fields are required');
@@ -26,17 +27,17 @@ const PlaceNewOrder = () => {
   };
 
   return (
-    <div className="p-8 max-w-xl mx-auto">
-      <h1 className="text-3xl font-semibold mb-4">Place New Order</h1>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-10">
+      <div className="w-full max-w-xl bg-white p-8 rounded-2xl shadow-xl space-y-6">
+        <h1 className="text-3xl font-bold text-center text-gray-800">Place New Order</h1>
 
-      <div className="space-y-4">
         {/* Party Selection */}
         <div>
-          <label className="block text-sm">Party Selection</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Party</label>
           <select
             value={party}
             onChange={(e) => setParty(e.target.value)}
-            className="border rounded-md w-full p-2"
+            className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">Select Party</option>
             <option value="Party A">Party A</option>
@@ -46,11 +47,11 @@ const PlaceNewOrder = () => {
 
         {/* Product Type */}
         <div>
-          <label className="block text-sm">Product Type</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Product Type</label>
           <select
             value={productType}
             onChange={(e) => setProductType(e.target.value)}
-            className="border rounded-md w-full p-2"
+            className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">Select Product Type</option>
             <option value="Product X">Product X</option>
@@ -60,11 +61,11 @@ const PlaceNewOrder = () => {
 
         {/* Item */}
         <div>
-          <label className="block text-sm">Item</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Item</label>
           <select
             value={item}
             onChange={(e) => setItem(e.target.value)}
-            className="border rounded-md w-full p-2"
+            className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="">Select Item</option>
             <option value="Item A">Item A</option>
@@ -74,30 +75,32 @@ const PlaceNewOrder = () => {
 
         {/* Quantity */}
         <div>
-          <label className="block text-sm">Quantity</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Quantity</label>
           <input
             type="number"
+            min={1}
             value={quantity}
             onChange={handleQuantityChange}
-            className="border rounded-md w-full p-2"
+            className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter quantity"
           />
         </div>
 
         {/* Total Amount */}
         <div>
-          <label className="block text-sm">Total Amount</label>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Total Amount</label>
           <input
             type="text"
             value={`₹ ${totalAmount}`}
             disabled
-            className="border rounded-md w-full p-2 bg-gray-200"
+            className="w-full border border-gray-200 bg-gray-100 rounded-md px-4 py-2 text-gray-700"
           />
         </div>
 
-        {/* Button */}
+        {/* CTA Button */}
         <button
           onClick={handleSubmit}
-          className="bg-blue-500 text-white p-3 rounded-md w-full hover:bg-blue-600"
+          className="w-full py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-all duration-200 font-semibold text-lg"
         >
           Proceed to Advance Payment
         </button>

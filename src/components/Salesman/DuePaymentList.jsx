@@ -7,6 +7,8 @@ import DuePaymentModal from './DuePaymentModal';
 const dummyDues = [
   { id: 'ORD101', party: 'Party A', total: 10000, due: 3000 },
   { id: 'ORD102', party: 'Party B', total: 8000, due: 8000 },
+  { id: 'ORD103', party: 'Party C', total: 3000, due: 1000 },
+  { id: 'ORD104', party: 'Party D', total: 18000, due: 8000 },
 ];
 
 const DuePaymentList = () => {

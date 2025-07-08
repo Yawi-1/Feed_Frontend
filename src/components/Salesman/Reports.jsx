@@ -24,15 +24,15 @@ const Reports = () => {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
         <div className="bg-white shadow-md p-4 rounded-lg text-center">
           <h3 className="text-lg font-medium">Today’s Sales</h3>
-          <p className="text-2xl font-bold text-blue-600">₹ 25,000</p>
+          <p className="text-2xl font-bold text-blue-600">₹ 39,000</p>
         </div>
         <div className="bg-white shadow-md p-4 rounded-lg text-center">
           <h3 className="text-lg font-medium">Dispatch Completed</h3>
-          <p className="text-2xl font-bold text-green-600">15</p>
+          <p className="text-2xl font-bold text-green-600">150</p>
         </div>
         <div className="bg-white shadow-md p-4 rounded-lg text-center">
           <h3 className="text-lg font-medium">Total Due</h3>
-          <p className="text-2xl font-bold text-red-600">₹ 12,000</p>
+          <p className="text-2xl font-bold text-red-600">₹ 21,000</p>
         </div>
       </div>
 
