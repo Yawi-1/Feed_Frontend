@@ -15,6 +15,7 @@ import Accountant from './components/Accountant/Accountant';
 import SalesmanProfile from './components/Salesman/SalemanProfie';
 import DuePaymentList from './components/Salesman/DuePaymentList';
 import Reports from './components/Salesman/Reports';
+import ExternalRedirect from './components/Admin/ExternalRedirect';
 const AppRoutes = () => {
   const { isAuthenticated, userRole } = useApp();
 

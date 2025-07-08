@@ -16,13 +16,6 @@ const SalesAuthorizer = () => {
           </h2>
           <OrderList />
         </section>
-
-        <section>
-          <h2 className="text-xl sm:text-2xl font-semibold mb-3 text-gray-700">
-            Add New Warehouse
-          </h2>
-          <WarehouseForm />
-        </section>
       </div>
     </div>
   );

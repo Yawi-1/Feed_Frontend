@@ -2,8 +2,12 @@ import React, { useState } from 'react';
 import AssignWarehouseModal from './AssignWarehouseModal';
 
 const dummyOrders = [
-  { id: 1, product: 'Gaming Laptop', status: 'Pending' },
-  { id: 2, product: 'Office Chair', status: 'Pending' },
+  { id: 1, product: 'Broiler Starter', status: 'Pending' },
+  { id: 2, product: 'Duck Feed', status: 'Pending' },
+  { id: 3, product: 'Layer Producer', status: 'Approved' },
+  { id: 4, product: 'Duck Feed', status: 'Pending' },
+  { id: 5, product: 'Broiler Starter', status: 'Approved' },
+  { id: 6, product: 'Cattle Feed', status: 'Pending' },
 ];
 
 const OrderList = () => {

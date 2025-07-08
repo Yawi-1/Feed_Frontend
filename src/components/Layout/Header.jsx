@@ -52,11 +52,8 @@ const Header = () => {
             {/* User Info */}
             <div className="flex items-center space-x-3">
               <div className="text-right">
-                <div className="text-sm font-semibold text-gray-900">
-                  {currentUser?.name || 'User'}
-                </div>
                 <span
-                  className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-white ${getRoleColor(
+                  className={`inline-flex items-center px-2.5 py-2 cursor-pointer rounded-full text-xs font-medium text-white ${getRoleColor(
                     userRole
                   )}`}
                 >
